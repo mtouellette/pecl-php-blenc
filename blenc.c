@@ -324,7 +324,7 @@ static char *php_blenc_file_to_mem(char *filename TSRMLS_DC)
 	zval *stringvalue = NULL;
 #endif
 
-	if (!(stream = php_stream_open_wrapper(filename, "rb", REPORT_ERRORS, NULL))) {
+	if (!(stream = php_stream_open_wrapper(filename, "rb", NULL, NULL))) {
 		return NULL;
 	}
 
