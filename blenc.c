@@ -369,6 +369,11 @@ static int php_blenc_load_keyhash(TSRMLS_D)
 #endif
 	int bfdata_len = 0;
 
+    // Graceful fail if no keyfile present
+    if(BL_G(key_file) == ""){
+        return SUCCESS;
+    }
+
 	keys = php_blenc_file_to_mem(BL_G(key_file) TSRMLS_CC);
 
 	memset(main_hash, '\0', sizeof(main_hash));
