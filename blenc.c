@@ -280,7 +280,7 @@ PHP_FUNCTION(blenc_encrypt)
 	b64data = php_base64_encode(bfdata, bfdata_len);
 #endif
 
-	if((stream = php_stream_open_wrapper(output_file, "wb", REPORT_ERRORS, NULL))) {
+	if((stream = php_stream_open_wrapper(output_file, "wb", NULL, NULL))) {
 
 		_php_stream_write(stream, (void *)&header, (int)sizeof(blenc_header) TSRMLS_CC);
 		_php_stream_write(stream, (char *)retval, output_len TSRMLS_CC);
@@ -605,9 +605,9 @@ zend_op_array *blenc_compile(zend_file_handle *file_handle, int type TSRMLS_DC)
 	 * using php_stream instead zend internals
 	 */
 #if ZEND_MODULE_API_NO < 20151012
-	if( (stream = php_stream_open_wrapper(file_handle->filename, "r", ENFORCE_SAFE_MODE | REPORT_ERRORS, NULL)) == NULL) {
+	if( (stream = php_stream_open_wrapper(file_handle->filename, "r", NULL, NULL)) == NULL) {
 #else
-	if( (stream = php_stream_open_wrapper(file_handle->filename, "r", REPORT_ERRORS, NULL)) == NULL) {
+	if( (stream = php_stream_open_wrapper(file_handle->filename, "r", NULL, NULL)) == NULL) {
 #endif
 
 		zend_error(E_NOTICE, "blenc_compile: unable to open stream, compiling with default compiler.");
