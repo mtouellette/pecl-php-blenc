@@ -18,6 +18,8 @@ setlocal enableextensions enabledelayedexpansion
 	)
 	if %errorlevel% neq 0 exit /b 3
 
+    rem @todo replace line 42 (BLENC_PROTECT_MAIN_KEY) in blen_protect.h with sudo random key (output to console at compile time
+
 	for %%z in (%ZTS_STATES%) do (
 		set ZTS_STATE=%%z
 		if "!ZTS_STATE!"=="enable" set ZTS_SHORT=ts
