@@ -82,7 +82,7 @@ ZEND_GET_MODULE(blenc)
 
 /* {{{ PHP_INI */
 PHP_INI_BEGIN()
-STD_PHP_INI_ENTRY("blenc.key_file", "/usr/local/etc/blenckeys", PHP_INI_ALL, OnUpdateString, key_file, zend_blenc_globals, blenc_globals)
+STD_PHP_INI_ENTRY("blenc.key_file", "", PHP_INI_ALL, OnUpdateString, key_file, zend_blenc_globals, blenc_globals)
 PHP_INI_END()
 /* }}} */
 
