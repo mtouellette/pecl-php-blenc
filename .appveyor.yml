@@ -19,7 +19,6 @@ environment:
       PHP_REL: 8.0
       ARCHITECTURES: x64
       ZTS_STATES: disable
-
 install:
   - appveyor\install.cmd
 
